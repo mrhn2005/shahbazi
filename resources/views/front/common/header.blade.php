@@ -8,7 +8,7 @@
 
 				<!-- Nav Start -->
 				<div class="nav">
-				{{	 menu('front','front.common.menu')  }}
+				{!!	 Helper::menu()  !!}
 				</div>
 				<!-- Nav End -->
 

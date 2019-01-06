@@ -9,41 +9,43 @@ use TCG\Voyager\Facades\Voyager;
 use View;
 use App\Traits\Language;
 
+use Illuminate\Support\Facades\Cache;
+
+use TCG\Voyager\Models\Category as Category;
+use App\Models\Social;
+use App\Models\Benefit;
+
+
 class HomeController extends Controller
 {
-    
-    use Language;
+
 
     public function __construct() {
-
-       
-    $this->isRtl();
-
-       View::share ( 'isRtl', $this->isRtl() );
+ 
+       View::share ( ['socials'=>Social::withTranslations(App::getLocale())->get()] );
     }
     
    
     public function home_page(){
-        // $posts=Voyager::modelClass('MenuItem')::find(16);
-        // // $posts = $posts->translate('pt', 'pt');
-        // return $posts->getTranslatedAttribute('title');
-        // return $posts->getTranslationsOf('title')[App::getLocale()];
-        
-        //  $menu_item=Voyager::modelClass('MenuItem')::with('translations')->whereTitle('Gallery')->first();
-        // $menu_item = $menu_item->translate('ar');
-        
-        // // return $menu_item->getTranslatedAttribute('title');
-        // return $menu_item->get();
-        
-        // $menu_items=Voyager::modelClass('Menu')::whereName('front')->with('items.translations')->get()->pluck('items')->collapse()->values();
-        // foreach ($menu_items as $item){
-        //     return $item->getTranslatedAttribute('title','en');
-        // }
+        $benefits=Benefit::withTranslations(App::getLocale())->get();
+        return view('front.home.home',compact(['benefits']));
+    }
+    
+    
+    
+    
+    public function test(){
+        // return App::getLocale();
+        $categories= Category::withTranslations()->get();
+        $menu = Cache::remember('menu'.App::getLocale(), 1, function () use ($categories) {
             
-        // dd($menu);
-        return view('front.home.home');
-        
-        
+            return menu('front','front.common.menu',['categories'=>$categories]);
+        });
+        return $menu;
        
+       return $categories;
+        // dd($categories);
+       return view('home',compact('categories')); 
     }
 }
+            

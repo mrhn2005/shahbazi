@@ -18,7 +18,7 @@ Route::middleware(['web', 'localized'])
     ->group(function () {
      App::setLocale(request()->segment(1));   
     Route::get('/','Front\HomeController@home_page');
-    
+    Route::get('/test','Front\HomeController@test');
 });
 
 

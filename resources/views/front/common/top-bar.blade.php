@@ -10,14 +10,7 @@
 				</div>
 			</div>
 			<div class="col-md-8 top-social">
-				<ul>
-					<li><a href="home-layout-1.html#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="home-layout-1.html#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="home-layout-1.html#"><i class="fa fa-linkedin"></i></a></li>
-					<li><a href="home-layout-1.html#"><i class="fa fa-google-plus"></i></a></li>
-					<li><a href="home-layout-1.html#"><i class="fa fa-pinterest"></i></a></li>
-					<li><a href="home-layout-1.html#"><i class="fa fa-youtube"></i></a></li>
-				</ul>
+				@include('front.common.social-networks')
 			</div>
 		</div>
 	</div>

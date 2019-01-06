@@ -1,1 +1,5 @@
-{{menu('front', 'bootstrap')}}
+@foreach($categories as $item)
+    {{$item->children->isEmpty()}}
+    
+
+@endforeach

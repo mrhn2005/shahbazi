@@ -1,7 +1,7 @@
 
 @php
 	if(!isset($innerLoop)){
-		if($isRtl){
+		if(Helper::isRtl()){
 			$items=$items->sortByDesc('id');
 		}
 		echo '<ul class="sf-menu">';
@@ -10,20 +10,16 @@
 		echo '<ul>';
 	}
 	
-	
-
 @endphp
-
-
-
 
 
 @foreach ($items as $item)
 
     @php
-
         $originalItem = $item;
-
+        if($item->title=='Packages'){
+            $originalItem->children=$options->categories->where('parent_id',null)->all();
+        }
 
         $listItemClass = null;
         $linkAttributes =  null;
@@ -40,15 +36,15 @@
         }
 
         // With Children Attributes
-        if(!$originalItem->children->isEmpty()) {
+        if(count($originalItem->children)>0) {
             $linkAttributes =  'class="dropdown-toggle" data-toggle="dropdown"';
             $caret = '<span class="caret"></span>';
 
-            if(url($item->link()) == url()->current()){
-                $listItemClass = 'dropdown active';
-            }else{
-                $listItemClass = 'dropdown';
-            }
+            // if(url($item->link()) == url()->current()){
+            //     $listItemClass = 'dropdown active';
+            // }else{
+            //     $listItemClass = 'dropdown';
+            // }
         }
 
         // Set Icon
@@ -57,6 +53,7 @@
         }
 
     @endphp
+    
 	<li>
 		<a href="home-layout-1.html#">
 			@if(!isset($innerLoop))
@@ -71,7 +68,7 @@
 				{{ $item->getTranslatedAttribute('title') }}
 			@endif
 		</a>
-		@if(!$originalItem->children->isEmpty())
+		@if(count($originalItem->children)>0)
         @include('front.common.menu', ['items' => $originalItem->children, 'options' => $options, 'innerLoop' => true])
         @endif
 	</li>

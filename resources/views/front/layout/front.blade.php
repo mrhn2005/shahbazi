@@ -36,7 +36,11 @@
 	<link rel="stylesheet" href="css/responsive.css">
 
 	<script src="js/modernizr.min.js"></script>
-	
+	<style>
+		.social-pad{
+			padding-top:5px;
+		}
+	</style>
     @yield('style')
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
