@@ -4796,6 +4796,8 @@ return array(
     'VoyagerDatabaseSeeder' => $baseDir . '/database/seeds/VoyagerDatabaseSeeder.php',
     'VoyagerDummyDatabaseSeeder' => $baseDir . '/database/seeds/VoyagerDummyDatabaseSeeder.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
+    'Webpatser\\Uuid\\Uuid' => $vendorDir . '/webpatser/laravel-uuid/src/Webpatser/Uuid/Uuid.php',
+    'Webpatser\\Uuid\\UuidServiceProvider' => $vendorDir . '/webpatser/laravel-uuid/src/Webpatser/Uuid/UuidServiceProvider.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',

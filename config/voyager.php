@@ -128,7 +128,6 @@ return [
         'locales' => [
             'en',
             'ar',
-            'pt,'
         ],
     ],
 

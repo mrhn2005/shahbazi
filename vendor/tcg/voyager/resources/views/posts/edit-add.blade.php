@@ -301,5 +301,6 @@
             $('.side-body').multilingual({"editing": true});
         @endif
         });
+        document.getElementById("richtextbody").required = false;
     </script>
 @stop

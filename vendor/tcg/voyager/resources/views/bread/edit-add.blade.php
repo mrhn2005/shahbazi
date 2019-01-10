@@ -182,5 +182,6 @@
             });
             $('[data-toggle="tooltip"]').tooltip();
         });
+        document.getElementById("richtextbody").required = false;
     </script>
 @stop

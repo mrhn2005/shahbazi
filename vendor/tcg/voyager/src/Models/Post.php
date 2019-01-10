@@ -10,11 +10,14 @@ use TCG\Voyager\Traits\HasRelationships;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 
+use App\Traits\DateFormat;
+
 class Post extends Model
 {
     use Translatable,
         Resizable,
-        HasRelationships;
+        HasRelationships,
+        DateFormat;
 
     protected $translatable = ['title', 'seo_title', 'excerpt', 'body', 'slug', 'meta_description', 'meta_keywords'];
 
@@ -34,9 +37,12 @@ class Post extends Model
 
     public function authorId()
     {
-        return $this->belongsTo(Voyager::modelClass('User'), 'author_id', 'id');
+        return $this->belongsTo(Voyager::modelClass('User'), 'author_id', 'id')->withDefault([
+            'name' => 'Admin'
+        ]);
     }
-
+    
+    
     /**
      * Scope a query to only published scopes.
      *

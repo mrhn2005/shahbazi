@@ -12,7 +12,8 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "tcg/voyager": "^1.1"
+        "tcg/voyager": "^1.1",
+        "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

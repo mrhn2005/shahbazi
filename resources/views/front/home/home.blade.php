@@ -1,7 +1,31 @@
 @extends('front.layout.front')
 
 @section('title')
-Iran Midecal Tour
+{{setting(App::getLocale().'.title')}}
+@endsection
+
+@section('style')
+<style>
+	.thumb-container{
+        position: relative;
+        width: 100%;
+        padding-top: 58%;
+        background-color:#F1F1F1;
+    }
+
+    .image-container{
+       overflow: hidden;
+       position:  absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+    }
+    
+    .excerp-height{
+        min-height:140px;
+    }
+</style>
 @endsection
 
 @section('content')	
@@ -553,139 +577,14 @@ Iran Midecal Tour
 
 
 		<!-- Testimonial Start -->
-		@include('front.home.includes.testimonal')
+		
 		<!-- Testimonial End -->
 
 
 
 
 		<!-- News Start -->
-		<section class="news-v1">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="heading wow fadeInUp">
-							<h2>Latest News</h2>
-							<p>See All Our Updated and Latest News</p>
-							<div class="sep"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						
-						<!-- News Carousel Start -->
-						<div class="news-carousel">
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/1.jpg" alt="">
-									<div class="date">
-										<div class="day">25</div>
-										<div class="month">Sep</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/2.jpg" alt="">
-									<div class="date">
-										<div class="day">11</div>
-										<div class="month">Aug</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/3.jpg" alt="">
-									<div class="date">
-										<div class="day">28</div>
-										<div class="month">Jun</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/1.jpg" alt="">
-									<div class="date">
-										<div class="day">25</div>
-										<div class="month">Sep</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/2.jpg" alt="">
-									<div class="date">
-										<div class="day">11</div>
-										<div class="month">Aug</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-
-							<div class="item wow fadeInUp">
-								<div class="thumb">
-									<img src="images/news/3.jpg" alt="">
-									<div class="date">
-										<div class="day">28</div>
-										<div class="month">Jun</div>
-									</div>
-								</div>
-								<div class="text">
-									<h3><a href="home-layout-1.html">News Title Here</a></h3>
-									<h4><i class="fa fa-comments-o" aria-hidden="true"></i> 24 Comments</h4>
-									<p>
-										In pede quis wisi accumsan, et posuere ac, lectus morbi hendrerit auctor aliquet sed orci, in condimentum faucibus congue vel.
-									</p>
-								</div>
-							</div>
-							
-						</div>
-						<!-- News Carousel End -->
-
-					</div>
-				</div>
-			</div>
-		</section>
+		@include('front.home.includes.posts')
 		<!-- News End -->
 
 			
@@ -776,106 +675,7 @@ Iran Midecal Tour
 
 
 		<!-- Footer Social Start -->
-		<section class="footer-social">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="item">
-							@include('front.common.social-networks')
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Footer Social End -->
-
-		
-		<!-- Footer Main Start -->
-		<section class="footer-main">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
-						<h3>About HealthCube</h3>
-						<p>
-							Dicant discere pro no, no pri prima facilisi. Sit munere voluptaria ea. Ex per fugit prodesset adipiscing, viderer aliquam et vim. Id enim esse deleniti mel, vix eirmod omittam constituam ad. Choro doming mea eu, melius docendi tractatos cu quo.
-						</p>
-					</div>
-					<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
-						<h3>Latest News</h3>
-						<div class="news-item">
-							<div class="news-title"><a href="home-layout-1.html#">Lorem ipsum dolor sit amet, pri ea option scripserit, ex vis affert tantas graece</a></div>
-							<div class="news-date"><a href="home-layout-1.html#">July 24, 2016</a></div>
-						</div>
-						<div class="news-item">
-							<div class="news-title"><a href="home-layout-1.html#">Lorem ipsum dolor sit amet, pri ea option scripserit, ex vis affert tantas graece</a></div>
-							<div class="news-date"><a href="home-layout-1.html#">July 24, 2016</a></div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
-						<h3>Important Links</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<ul>
-									<li><a href="home-layout-1.html#">About Us</a></li>
-									<li><a href="home-layout-1.html#">Team Members</a></li>
-									<li><a href="home-layout-1.html#">Our Services</a></li>
-									<li><a href="home-layout-1.html#">Photo Gallery</a></li>
-									<li><a href="home-layout-1.html#">Contact Us</a></li>
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<ul>
-									<li><a href="home-layout-1.html#">Our Portfolio</a></li>
-									<li><a href="home-layout-1.html#">Our Partners</a></li>
-									<li><a href="home-layout-1.html#">Testimonials</a></li>
-									<li><a href="home-layout-1.html#">Blog Page</a></li>
-									<li><a href="home-layout-1.html#">FAQ</a></li>
-								</ul>
-							</div>
-						</div>						
-					</div>
-					<div class="col-sm-6 col-md-3 col-lg-3 footer-col">
-						<h3>Contact Us</h3>
-						<div class="contact-item">
-							<div class="icon"><i class="fa fa-map-marker"></i></div>
-							<div class="text">Unum debitis pro id, explicari</div>
-						</div>
-						<div class="contact-item">
-							<div class="icon"><i class="fa fa-phone"></i></div>
-							<div class="text">123-456-7878</div>
-						</div>
-						<div class="contact-item">
-							<div class="icon"><i class="fa fa-fax"></i></div>
-							<div class="text">123-456-7890</div>
-						</div>
-						<div class="contact-item">
-							<div class="icon"><i class="fa fa-envelope-o"></i></div>
-							<div class="text">info@yokobd.com</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Footer Main End -->
-
-		
-		<!-- Footer Bottom Start -->
-		<section class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 copyright">
-						Copyright &copy; 2016, Yoko Themes. All Rights Reserved.
-					</div>
-					<div class="col-md-6 footer-menu">
-						<ul>
-							<li><a href="home-layout-1.html">Terms of Service</a></li>
-							<li><a href="home-layout-1.html">Privacy Policy</a></li>
-							<li><a href="home-layout-1.html">Contact Us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
+			@include('front.common.footer')
 		<!-- Footer Bottom End -->
 
 

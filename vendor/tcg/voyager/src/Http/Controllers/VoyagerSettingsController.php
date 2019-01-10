@@ -67,11 +67,31 @@ class VoyagerSettingsController extends Controller
         $request->merge(['order' => $order]);
         $request->merge(['value' => '']);
         $request->merge(['key' => $key]);
-
-        Voyager::model('Setting')->create($request->except('setting_tab'));
+        
+        
+        if(!$request->group){
+            // return $request;
+            $groups_data = Voyager::model('Setting')->select('group')->distinct()->get();
+            $groups = [];
+            foreach ($groups_data as $group) {
+                if ($group->group != '') {
+                    $request->merge(['group' => $group->group]);
+                    $request->merge(['key' => $group->group.$key]);
+                    // if($loop->index>0){
+                    //     return $request;
+                    // }
+                    Voyager::model('Setting')->create($request->except('setting_tab'));
+                    // return $request;
+                }
+            }
+        }
+        else{
+           Voyager::model('Setting')->create($request->except('setting_tab')); 
+        }
+        
 
         request()->flashOnly('setting_tab');
-
+        
         return back()->with([
             'message'    => __('voyager::settings.successfully_created'),
             'alert-type' => 'success',

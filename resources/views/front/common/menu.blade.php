@@ -51,11 +51,11 @@
         if(isset($options->icon) && $options->icon == true){
             $icon = '<i class="' . $item->icon_class . '"></i>';
         }
-
+       
     @endphp
     
 	<li>
-		<a href="home-layout-1.html#">
+		<a href="{{$item->link()}}">
 			@if(!isset($innerLoop))
 			<span class="menu-description">
 				<i class="{{ $item->icon_class }}"></i>

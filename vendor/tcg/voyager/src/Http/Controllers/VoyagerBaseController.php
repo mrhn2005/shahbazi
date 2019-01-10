@@ -95,7 +95,7 @@ class VoyagerBaseController extends Controller
         if (view()->exists("voyager::$slug.browse")) {
             $view = "voyager::$slug.browse";
         }
-
+        
         return Voyager::view($view, compact(
             'dataType',
             'dataTypeContent',
@@ -279,7 +279,7 @@ class VoyagerBaseController extends Controller
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
         }
-
+    
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
     }
 

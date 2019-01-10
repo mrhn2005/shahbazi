@@ -496,6 +496,13 @@ class ComposerStaticInit8dcfdc4366de1feab47e6683a4d08c19
     );
 
     public static $prefixesPsr0 = array (
+        'W' => 
+        array (
+            'Webpatser\\Uuid' => 
+            array (
+                0 => __DIR__ . '/..' . '/webpatser/laravel-uuid/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -5322,6 +5329,8 @@ class ComposerStaticInit8dcfdc4366de1feab47e6683a4d08c19
         'VoyagerDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDatabaseSeeder.php',
         'VoyagerDummyDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/VoyagerDummyDatabaseSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
+        'Webpatser\\Uuid\\Uuid' => __DIR__ . '/..' . '/webpatser/laravel-uuid/src/Webpatser/Uuid/Uuid.php',
+        'Webpatser\\Uuid\\UuidServiceProvider' => __DIR__ . '/..' . '/webpatser/laravel-uuid/src/Webpatser/Uuid/UuidServiceProvider.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
         'Whoops\\Exception\\Frame' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Frame.php',

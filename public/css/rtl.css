@@ -1,0 +1,40 @@
+.bx-wrapper .bx-viewport{ direction: ltr; }
+
+.sf-menu li li a {
+     padding-right: 15px;
+     padding-left: 0px;
+}
+
+.sf-menu ul {
+    right: 0;
+}
+
+.sf-menu ul ul {
+    right: 100%;
+}
+
+.sf-menu li li:hover > ul {
+	-moz-animation: slideInLeft 0.4s ease;
+    -webkit-animation: slideInLeft 0.4s ease;
+    animation: slideInLeft 0.4s ease;
+}
+
+.top-contact{
+    float:left;
+}
+
+.top-social{
+    float:left;
+}
+
+.blog .text ul.status li i{
+    margin-left: 8px;
+}
+
+.blog .text h3{
+    text-align: right;
+}
+
+.blog .text ul.status li {
+    float:right;
+}
