@@ -38,3 +38,16 @@
 .blog .text ul.status li {
     float:right;
 }
+
+.department-v2 .department-tab .department-content ul li {
+    padding: 3px 30px 3px 15px;
+}
+
+.department-v2 .department-tab .department-content ul li:before {
+    content: '\f0a5';
+    right: 10px;
+}
+
+.dropdown-menu{
+    left:0px;
+}

@@ -55,7 +55,7 @@
                             @endif
 							<div class="form-group">
                                 <div class="col-sm-12">
-                                    <textarea name="" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea name="message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

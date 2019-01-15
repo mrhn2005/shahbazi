@@ -25,6 +25,8 @@ class HomeController extends Controller
     private $per_page=6;
     private $post_per_home=5;
     private $banner_per_home=3;
+    private $cache_minutes=1;
+    
     public function __construct() {
        
        View::share ( ['socials'=>Social::withTranslations(App::getLocale())->get()] );
@@ -35,7 +37,11 @@ class HomeController extends Controller
         $benefits=Benefit::withTranslations(App::getLocale())->get();
         $posts=Post::withTranslations(App::getLocale())->limit($this->post_per_home)->get();
         $banners=Banner::withTranslations(App::getLocale())->limit($this->banner_per_home)->get();
-        return view('front.home.home',compact(['benefits','posts','banners']));
+        $department = Cache::remember('categories'.App::getLocale(), $this->cache_minutes, function (){
+            $categories=Category::with('children')->withTranslations(App::getLocale())->get();
+            return view('front.home.includes.department',compact(['categories']))->render();
+        });
+        return view('front.home.home',compact(['benefits','posts','banners','department']));
     }
     
     
@@ -69,7 +75,14 @@ class HomeController extends Controller
     
     
     
+    public function local_switch($local){
+         return redirect($local);
+    }
+    
     public function test(){
+        $post=Post::first();
+        
+        return $post->thumbnail('small');
         // return Uuid::generate();
         $slug='lorem-ipsum-post-trans';
         $post=Post::withTranslations()->where(function ($query) use($slug) {

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 
@@ -20,7 +21,7 @@
 	<link href="images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 	
 	<!-- Favicon -->
-	<link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+	<link href="/images/favicon.png" rel="shortcut icon" type="/image/png">
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -47,6 +48,53 @@
 		.padd-bottom{
 			padding-bottom:30px;
 		}
+		
+		.language-selector{
+			display: inline;
+		    float: left;
+		    padding-right: 30px;
+		    margin-top: -5px;
+		}
+		
+		.language-selector .dropdown-menu{
+			min-width:100px;
+			right:auto;
+		}
+		
+		@media only screen and (max-width: 750px) and (min-width: 0){
+			.language-selector{
+				display: inline;
+			    float:none;
+
+			}
+			
+			.list-info{
+				padding-top:10px;
+			}
+			
+
+			.language-selector .dropdown-menu{
+				margin-top:10px;
+			}
+		}
+		
+		@media only screen and (max-width: 991px) and (min-width: 0){
+		    .page-wrapper {
+		    	padding-top:55px;
+		    }
+		    
+			
+		}
+		.slicknav_menu {
+		    background: #4C4C4C!important;
+		}
+
+		.flag{
+			height:12px;
+		}
+		
+		
+		
 	</style>
     @yield('style')
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

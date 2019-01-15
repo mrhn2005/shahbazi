@@ -18,7 +18,7 @@
 							<div class="item wow fadeInUp blog">
 								<div class="thumb thumb-container">
 								    <div class="image-container">
-    									<img src="{{Voyager::image($post->image)}}" alt="{{$post->slug}}">
+    									<img src="{{Voyager::image($post->thumbnail('medium'))}}" alt="{{$post->slug}}">
     									<div class="date">
     										<div class="day">25</div>
     										<div class="month">Sep</div>
@@ -32,7 +32,7 @@
 										{{$post->getTranslatedAttribute('excerpt')}}
 									</p>
 									<p class="button">
-    									<a href="blog-grid-column-2.html">Read More</a>
+    									<a href="{{route('blog.show',[$post->id,$post->slug])}}">Read More</a>
     								</p>
 								</div>
 							</div>
