@@ -1,70 +1,34 @@
 @extends('front.layout.front')
 
-@section('title')
-{{setting(App::getLocale().'.title')}} | {{ $post->getTranslatedAttribute('title') }}
-@endsection
 
 
-@section('style')
-<style>
-
-</style>
-
-@endsection
-
-@section('content')	
-	<div class="page-wrapper">
-		
-		<!-- Top Bar Start -->
-		@include('front.common.top-bar')
-		<!-- Top Bar End -->
-
-		<!-- Header Start -->
-		@include('front.common.header')
-		<!-- Header End -->
+@section('content')
+<!-- nav section -->
+@include('front.common.nav-page')
 
 
-		
-		
-		
-		
-			<!-- Banner Start -->
-		<div class="page-banner">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="banner-text">
-							<h1>{{ $post->getTranslatedAttribute('title') }}</h1>
-							<!--<ul>-->
-							<!--	<li><a href="home-layout-1.html">Home</a></li>-->
-							<!--	<li><i class="fa fa-angle-right"></i></li>-->
-							<!--	<li>Blog</li>-->
-							<!--</ul>-->
-						</div>
-					</div>
+
+<span class="background"></span>
+
+
+<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					
+					
+					<!-- papers-section -->
+					@include('front.blog.includes.body')	
+					<br>
+					<br>
+
+
+					@include('front.common.footer')
+					
+
+
 				</div>
 			</div>
 		</div>
-		<!-- Banner End -->
-		
-		
-		<!-- Blog Start -->
-		@include('front.blog.includes.body')
-		<!-- Blog End -->
-
-
-		<!-- Footer Social Start -->
-			@include('front.common.footer')
-		<!-- Footer Bottom End -->
-
-
-
-		<a href="home-layout-1.html#" class="scrollup">
-			<i class="fa fa-angle-up"></i>
-		</a>
-
-	</div>
-
+	</section>
 @endsection
-

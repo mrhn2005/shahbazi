@@ -11,37 +11,44 @@ use App\Traits\Language;
 // use Webpatser\Uuid\Uuid;
 use Illuminate\Support\Facades\Cache;
 
+use App\Helpers\Helper;
+
 use TCG\Voyager\Models\Category as Category;
 use TCG\Voyager\Models\Page as Page;
 use TCG\Voyager\Models\Post as Post;
 
+use App\Models\Information;
+use App\Models\Timeline;
 use App\Models\Social;
-use App\Models\Benefit;
-use App\Models\Banner;
+use App\Models\Project;
+use App\Models\Report;
 use App\Models\Request as Req;
 
 class HomeController extends Controller
 {
-    private $per_page=6;
-    private $post_per_home=5;
+    private $per_page=9;
+    private $post_per_home=3;
+    private $project_per_home=3;
     private $banner_per_home=3;
     private $cache_minutes=1;
     
     public function __construct() {
        
-       View::share ( ['socials'=>Social::withTranslations(App::getLocale())->get()] );
+       View::share ([
+           'socials'=>Social::withTranslations(App::getLocale())->get(),
+           'is_rtl'=>Helper::isRtl()
+           ]);
     }
     
    
     public function home_page(){
-        $benefits=Benefit::withTranslations(App::getLocale())->get();
         $posts=Post::withTranslations(App::getLocale())->limit($this->post_per_home)->get();
-        $banners=Banner::withTranslations(App::getLocale())->limit($this->banner_per_home)->get();
-        $department = Cache::remember('categories'.App::getLocale(), $this->cache_minutes, function (){
-            $categories=Category::with('children')->withTranslations(App::getLocale())->get();
-            return view('front.home.includes.department',compact(['categories']))->render();
-        });
-        return view('front.home.home',compact(['benefits','posts','banners','department']));
+        $information=Information::withTranslations(App::getLocale())->first();
+        $timelines=Timeline::withTranslations(App::getLocale())->get();
+        $categories=Category::with('papers')->withTranslations(App::getLocale())->orderBy('order','asc')->get();
+        $projects=Project::withTranslations(App::getLocale())->orderBy('order','asc')->limit($this->project_per_home)->get();
+        $reports=Report::withTranslations(App::getLocale())->orderBy('order','asc')->limit($this->project_per_home)->get();
+        return view('front.home.index',compact(['posts','information','timelines','categories','projects','reports']));
     }
     
     
@@ -60,9 +67,24 @@ class HomeController extends Controller
         return view('front.blog.show',compact('post'));
     }
     
+    public function project_index(){
+        $projects=Project::withTranslations(App::getLocale())->paginate($this->per_page);
+        return view('front.project.index',compact('projects'));
+    }
+    public function project_show(Project $project,$slug=""){
+        return view('front.project.show',compact('project'));
+    }
+
+
+    public function reports(){
+        $reports=Report::withTranslations(App::getLocale())->paginate($this->per_page);
+        return view('front.report.index',compact('reports'));
+    } 
     
-    public function category_show(Category $category, $slug){
-        return view('front.service.index',compact('category'));
+    
+    public function papers(){
+        $categories=Category::with('papers')->withTranslations(App::getLocale())->orderBy('order','asc')->get();
+        return view('front.papers.index',compact('categories'));
     }
     public function category_request(Request $request){
         Req::create($request->all());

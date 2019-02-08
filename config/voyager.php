@@ -120,14 +120,14 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'fa',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
+            'fa',
             'en',
-            'ar',
         ],
     ],
 
@@ -209,7 +209,7 @@ return [
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'js/tinymce.js',
     ],
 
     'googlemaps' => [

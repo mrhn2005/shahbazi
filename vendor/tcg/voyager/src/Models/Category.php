@@ -17,9 +17,9 @@ class Category extends Model
 
     protected $table = 'categories';
     
-    protected $translatable = ['slug', 'title', 'excerpt', 'body'];
+    protected $translatable = ['slug', 'title'];
 
-    protected $fillable = ['slug', 'title' , 'excerpt', 'body'];
+    protected $fillable = ['slug', 'title'];
 
     public function children()
     {
@@ -50,4 +50,7 @@ class Category extends Model
         return route('category.show',[$this->id,$this->slug]);
     }
     
+    public function papers(){
+        return $this->hasMany('App\Models\Paper');
+    }
 }

@@ -1,53 +1,52 @@
-.bx-wrapper .bx-viewport{ direction: ltr; }
 
-.sf-menu li li a {
-     padding-right: 15px;
-     padding-left: 0px;
-}
-
-.sf-menu ul {
-    right: 0;
-}
-
-.sf-menu ul ul {
-    right: 100%;
-}
-
-.sf-menu li li:hover > ul {
-	-moz-animation: slideInLeft 0.4s ease;
-    -webkit-animation: slideInLeft 0.4s ease;
-    animation: slideInLeft 0.4s ease;
-}
-
-.top-contact{
-    float:left;
-}
-
-.top-social{
-    float:left;
-}
-
-.blog .text ul.status li i{
-    margin-left: 8px;
-}
-
-.blog .text h3{
+body{
+    direction: rtl;
     text-align: right;
 }
 
-.blog .text ul.status li {
-    float:right;
+.allright{
+    text-align: right;
 }
 
-.department-v2 .department-tab .department-content ul li {
-    padding: 3px 30px 3px 15px;
+.list-description {
+
+    border-left: 1px solid#e8e8e8;
+    
+    border-right:transparent;
 }
 
-.department-v2 .department-tab .department-content ul li:before {
-    content: '\f0a5';
-    right: 10px;
+
+
+.angle {
+    border-width: 20px 0px 0px 20px;
+}
+.experience .angle {
+
+    left:0;
+    right: inherit;
 }
 
-.dropdown-menu{
-    left:0px;
+@media only screen and (min-width: 992px)
+{
+    .list-img2{
+        margin-left: -40px
+    }
+}
+@media (min-width: 800px){
+    .flexnav li{
+        float:right;
+    }
+
+
+}
+
+
+@media (max-width: 990px){
+    body{
+        text-align:center;
+    }
+        
+    .menu-section ul li {
+        text-align:right;
+    }
 }

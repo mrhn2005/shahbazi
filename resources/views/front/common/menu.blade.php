@@ -1,10 +1,8 @@
 
 @php
 	if(!isset($innerLoop)){
-		if(Helper::isRtl()){
-			$items=$items->sortByDesc('id');
-		}
-		echo '<ul class="sf-menu">';
+		
+		echo '<ul id="navigation-menu" data-breakpoint="992" class="flexnav one-page">';
 	}else{
 	
 		echo '<ul>';
@@ -17,9 +15,7 @@
 
     @php
         $originalItem = $item;
-        if($item->title=='Packages'){
-            $originalItem->children=$options->categories->where('parent_id',null)->all();
-        }
+
 
         $listItemClass = null;
         $linkAttributes =  null;
@@ -72,7 +68,15 @@
         @include('front.common.menu', ['items' => $originalItem->children, 'options' => $options, 'innerLoop' => true])
         @endif
 	</li>
-
 @endforeach
-
+    @foreach (config('app.locales') as $localeKey => $locale)
+        @if ($localeKey != app()->getLocale())
+            <li><a class="language-link" href="{{ route('locale.switch', $localeKey) }}">
+                <span class="menu-description">
+    				<i class="fa fa-language" ></i>
+    			</span>
+                {{ $locale }}
+            </a></li>
+        @endif
+    @endforeach
 </ul>

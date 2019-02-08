@@ -33,7 +33,8 @@ class MenuItem extends Model
     }
 
     public function link($absolute = false)
-    {
+    { 
+        // dd($this->prepareLink($absolute, $this->route, $this->parameters, $this->url));
         return $this->prepareLink($absolute, $this->route, $this->parameters, $this->url);
     }
 
@@ -55,13 +56,14 @@ class MenuItem extends Model
         } elseif (is_object($parameters)) {
             $parameters = json_decode(json_encode($parameters), true);
         }
-
+    
         if (!is_null($route)) {
             if (!Route::has($route)) {
                 return '#';
             }
-
+            
             return route($route, $parameters, $absolute);
+            
         }
 
         if ($absolute) {
@@ -90,7 +92,7 @@ class MenuItem extends Model
         if (is_null($value)) {
             $value = '';
         }
-
+    
         $this->attributes['url'] = $value;
     }
 

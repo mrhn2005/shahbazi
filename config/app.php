@@ -80,16 +80,17 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fa',
     
     'locales' => [
+        'fa' => 'فارسی',
         'en' => 'English',
-        'ar' => 'Arabic',
+       
         // Add as many languages you want
     ],
     
     'rtlLocales'=>[
-       'ar' => 'Arabic', 
+       'fa' => 'Persian',
         
     ],
     /*
@@ -103,7 +104,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
