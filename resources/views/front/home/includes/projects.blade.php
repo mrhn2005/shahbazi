@@ -7,7 +7,9 @@
 					@foreach($projects as $project)
 					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail rex-blog-section">
+						    <div class="blog-img">
 							<img src="{{Voyager::image($project->thumbnail('medium'))}}" alt="{{$project->getTranslatedAttribute('title')}}">
+							</div>
 							<div class="rex-caption">
 								<a href="{{route('project.show',[$project->id,$project->getTranslatedAttribute('slug')])}}"><h6>{{$project->getTranslatedAttribute('title')}}</h6></a>
 								<span>{{$project->getTranslatedAttribute('position')}}</span>
