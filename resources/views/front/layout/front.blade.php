@@ -32,7 +32,8 @@
 		@else
 		<link rel="stylesheet" href="/css/ltr.css?t={{time()}}"/>
 	  @endif
-    
+    <!--<link rel="stylesheet" href="http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css" />-->
+    @yield('style')
     <script src="/js/vendor/modernizr.js"></script>
   </head>
   <body class="single">

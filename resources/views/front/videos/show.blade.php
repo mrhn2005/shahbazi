@@ -18,8 +18,7 @@
 					
 					
 					<!-- papers-section -->
-					@include('front.blog.includes.body')	
-					
+					@include('front.videos.includes.body')	
 					<br>
 					<br>
 

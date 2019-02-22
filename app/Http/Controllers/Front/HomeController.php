@@ -15,7 +15,7 @@ use App\Helpers\Helper;
 
 use TCG\Voyager\Models\Category as Category;
 use TCG\Voyager\Models\Page as Page;
-use TCG\Voyager\Models\Post as Post;
+
 
 use App\Models\Information;
 use App\Models\Timeline;
@@ -23,14 +23,20 @@ use App\Models\Social;
 use App\Models\Project;
 use App\Models\Report;
 use App\Models\Request as Req;
+use App\Models\Video;
+use App\Models\Link;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
     private $per_page=9;
     private $post_per_home=3;
-    private $project_per_home=3;
+    private $project_per_home=6;
     private $banner_per_home=3;
     private $cache_minutes=1;
+    private $video_per_home=3;
+    private $video_per_page=8;
+    private $report_per_home=4;
     
     public function __construct() {
        
@@ -42,13 +48,15 @@ class HomeController extends Controller
     
    
     public function home_page(){
-        $posts=Post::withTranslations(App::getLocale())->limit($this->post_per_home)->get();
+        $posts=Post::withTranslations(App::getLocale())->orderBy('created_at','desc')->limit($this->post_per_home)->get();
         $information=Information::withTranslations(App::getLocale())->first();
-        $timelines=Timeline::withTranslations(App::getLocale())->get();
         $categories=Category::with('papers')->withTranslations(App::getLocale())->orderBy('order','asc')->get();
-        $projects=Project::withTranslations(App::getLocale())->orderBy('order','asc')->limit($this->project_per_home)->get();
-        $reports=Report::withTranslations(App::getLocale())->orderBy('order','asc')->limit($this->project_per_home)->get();
-        return view('front.home.index',compact(['posts','information','timelines','categories','projects','reports']));
+        $timelines=Timeline::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->get();
+        $projects=Project::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->limit($this->project_per_home)->get();
+        $reports=Report::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->limit($this->report_per_home)->get();
+        $videos=Video::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->limit($this->video_per_home)->get();
+        $links=Link::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->get();
+        return view('front.home.index',compact(['posts','information','timelines','categories','projects','reports','videos','links']));
     }
     
     
@@ -60,7 +68,7 @@ class HomeController extends Controller
     
     
     public function blog_index(){
-        $posts=Post::with('authorId')->withTranslations(App::getLocale())->paginate($this->per_page);
+        $posts=Post::with('authorId')->withTranslations(App::getLocale())->orderBy('created_at','desc')->paginate($this->per_page);
         return view('front.blog.index',compact('posts'));
     }
     public function blog_show(Post $post, $slug){
@@ -68,7 +76,7 @@ class HomeController extends Controller
     }
     
     public function project_index(){
-        $projects=Project::withTranslations(App::getLocale())->paginate($this->per_page);
+        $projects=Project::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->paginate($this->per_page);
         return view('front.project.index',compact('projects'));
     }
     public function project_show(Project $project,$slug=""){
@@ -76,8 +84,18 @@ class HomeController extends Controller
     }
 
 
+    public function video_index(){
+        $videos=Video::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->paginate($this->video_per_page);
+        return view('front.videos.index',compact('videos'));
+    }
+    public function video_show(Video $video,$slug=""){
+        return view('front.videos.show',compact('video'));
+    }
+    
+    
+
     public function reports(){
-        $reports=Report::withTranslations(App::getLocale())->paginate($this->per_page);
+        $reports=Report::withTranslations(App::getLocale())->orderBy('order','asc')->orderBy('created_at','desc')->paginate($this->per_page);
         return view('front.report.index',compact('reports'));
     } 
     
@@ -102,27 +120,10 @@ class HomeController extends Controller
     }
     
     public function test(){
-        $post=Post::first();
         
-        return $post->thumbnail('small');
-        // return Uuid::generate();
-        $slug='lorem-ipsum-post-trans';
-        $post=Post::withTranslations()->where(function ($query) use($slug) {
-                dd($query);
-            })
-            ->get();
-        return $post->getTranslatedAttribute('slug');
-        // return App::getLocale();
-        $categories= Category::withTranslations()->get();
-        $menu = Cache::remember('menu'.App::getLocale(), 1, function () use ($categories) {
-            
-            return menu('front','front.common.menu',['categories'=>$categories]);
-        });
-        return $menu;
-       
-       return $categories;
-        // dd($categories);
-       return view('home',compact('categories')); 
+        $video=Video::first();
+        
+        echo $video->apara();
     }
 }
             

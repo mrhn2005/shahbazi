@@ -28,6 +28,9 @@ Route::middleware(['web', 'localized'])
     Route::get('/project/{project}/{slug?}','Front\HomeController@project_show')->name('project.show');
     Route::get('/project','Front\HomeController@project_index')->name('project.index');
     
+    Route::get('/video/{video}/{slug?}','Front\HomeController@video_show')->name('video.show');
+    Route::get('/video','Front\HomeController@video_index')->name('video.index');
+    
     Route::get('/paper','Front\HomeController@papers')->name('paper.index');
     Route::get('/report','Front\HomeController@reports')->name('report.index');
     

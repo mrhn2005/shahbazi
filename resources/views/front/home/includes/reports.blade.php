@@ -1,11 +1,15 @@
 <div class="active-section" id="reports">
+    <h2 class="title heading">
+        <i class="fa fa-book"></i>
+        {{__('Reports')}}
+    </h2>
 	<section class="section-block">
-		<h4 class="title">{{__('Reports')}}</h4>
+		
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12">
 				<div id="rex-blog-slider">
 					@foreach($reports as $report)
-					<div class="col-md-4 col-sm-6">
+					<div class="col-lg-3 col-md-6 col-sm-6">
 						<!-- Normal Demo-->
                           <div class="column">
                             

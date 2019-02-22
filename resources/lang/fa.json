@@ -8,9 +8,10 @@
     "Email": "ایمیل",
     "Phone": "شماره تماس",
     "Work Experience": "عناوین علمی و اجرایی",
-    "Education": "تحصیلات",
+    "Education": "سوابق تحصیلی",
     "Published Date": "تاریخ انتشار",
     "Latest News": "آخرین اخبار",
+    "Latest Videos": "آخرین ویدئوها",
     "Name": "نام",
     "Email": "ایمیل",
     "Phone": "شماره تماس",
@@ -25,5 +26,10 @@
     "Position": "سمت",
     "See all": "مشاهده همه",
     "Resume": "رزومه تحصیلی و کاری",
-    "Papers": "مقالات"
+    "Papers": "مقالات",
+    "Last Modified": "آخرین بروزرسانی",
+    "All rights reserved": "تمام حقوق مادی و معنوی این وبسایت متعلق به حسین شهبازی می باشد.",
+    "Links": "پیوندهای مفید",
+    "News Source": "منبع خبر",
+    "Teaching Experience": "سوابق تدریس"
 }

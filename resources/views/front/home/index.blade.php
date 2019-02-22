@@ -1,6 +1,14 @@
 @extends('front.layout.front')
 
-
+@section('style')
+<style>
+	@media only screen and (min-width: 500px){
+    .section-block1 {
+        padding: 28px 15px 52px;
+    }
+}
+</style>
+@endsection
 
 @section('content')
 <!-- nav section -->
@@ -46,12 +54,20 @@
 					<br>
 					
 					<!-- blog-section -->
-					@include('front.home.includes.blog')
+					<div class="row flex-row">
+						<div class="col-sm-9">
+							@include('front.home.includes.blog')
+						</div>
+						<div class="col-sm-3 video-top">
+							@include('front.home.includes.videos')
+						</div>
+					</div>
+					
 					<br>
 					<br>
 
 					<!-- form-section -->
-					@include('front.home.includes.form')
+					@include('front.home.includes.links')
 
 					@include('front.common.footer')
 					

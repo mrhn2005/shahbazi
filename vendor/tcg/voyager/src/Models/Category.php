@@ -51,6 +51,6 @@ class Category extends Model
     }
     
     public function papers(){
-        return $this->hasMany('App\Models\Paper');
+        return $this->hasMany('App\Models\Paper')->orderBy('created_at','desc');
     }
 }

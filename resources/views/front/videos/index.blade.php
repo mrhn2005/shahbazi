@@ -18,11 +18,13 @@
 					
 					
 					<!-- papers-section -->
-					@include('front.blog.includes.body')	
+					@include('front.videos.includes.videos')	
+					<br>
+					<br>
+					<div class="text-center">
+					{{ $videos->links() }}	
+					</div>
 					
-					<br>
-					<br>
-
 
 					@include('front.common.footer')
 					
@@ -31,5 +33,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
+	
 @endsection
