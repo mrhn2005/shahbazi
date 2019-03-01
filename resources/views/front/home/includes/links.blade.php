@@ -8,26 +8,21 @@
 			<div class="col-md-12">
 				<div id="rex-blog-slider" class="row">
 					
-					@foreach ($links->chunk(3) as $chunk)
+					
 					    <div class="row">
-					        
-					            <div class="col-md-4">
-					            	<ul>
-					            		@foreach ($chunk as $link)
-					            		<li>
-					            			
-					            			<a href="{{$link->url}}" target="_blank">
-					            				<i class="fa fa-external-link"></i>
-					            				{{ $link->getTranslatedAttribute('title')}}
-					            			</a>
-					            		</li>
-					            		@endforeach
-					            	</ul>
-					            	
+					        	@foreach ($links as $link)
+					        	
+					            <div class="col-md-4 link-margin">
+	
+			            			<a class="link-border" href="{{$link->url}}" target="_blank">
+			            				<i class="fa fa-external-link"></i>
+			            				{{ $link->getTranslatedAttribute('title')}}
+			            			</a>
+	
 					            </div>
-					        
+					        	@endforeach
 					    </div>
-					@endforeach
+					
 					
 				</div>
 			</div>

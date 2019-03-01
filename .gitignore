@@ -6,7 +6,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /storage
-/public
+/public/storage
 /config/filesystems.php
 /.old
 hshahbazi.ir.zip

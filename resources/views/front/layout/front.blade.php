@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/css/vendor/owl.carousel.css">
     <link rel="stylesheet" href="/css/vendor/owl.transitions.css">
     <link rel="stylesheet" href="/css/style.css">
-    
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
     <link rel="stylesheet" href="/css/report.css?t={{time()}}"/>
     <link rel="stylesheet" href="/css/custom.css?t={{time()}}"/>
     @if($is_rtl)
